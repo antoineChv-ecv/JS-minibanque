@@ -53,7 +53,7 @@ function deleteCompte(idCompte) {
     return { message: "Une erreur est survenue", error: error.message };
   }
 }
-console.log(deleteCompte("1"));
+console.log(deleteCompte("2"));
 
 // Possibilité de déposer de l'argent sur le compte d'un client
 function depositeCash(idCompte, amount) {
@@ -64,7 +64,7 @@ function depositeCash(idCompte, amount) {
       let transactionId = crypto.randomUUID();
       historyOfTransactions.push({
         idTransaction: transactionId,
-        idCompte: idAccountFrom,
+        idCompte: idCompte,
         type: "deposite",
         amount,
         date: new Date(),
@@ -89,7 +89,7 @@ function withdrawCash(idCompte, amount) {
         let transactionId = crypto.randomUUID();
         historyOfTransactions.push({
           idTransaction: transactionId,
-          idCompte: idAccountFrom,
+          idCompte: idCompte,
           type: "withdraw",
           amount,
           date: new Date(),
